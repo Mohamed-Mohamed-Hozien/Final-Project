@@ -32,9 +32,9 @@ namespace Final_Project.Pages.Shared
             string Q;
             Q = "select Role from Employee where E_ID = '" + idInput + "' and Password= '" + passInput + "';";
             Console.WriteLine(Q);
-            dt = db.Read("Employee", Q);
+            dt = db.TestingQuery(Q);
 
-            Console.WriteLine();
+            Console.WriteLine(dt);
 
 
 

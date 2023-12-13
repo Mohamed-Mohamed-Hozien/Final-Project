@@ -31,5 +31,26 @@ namespace Final_Project.Models
             }
             return dt;
         }
+
+        public DataTable TestingQuery(string Q)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(Q, con);
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
     }
 }
