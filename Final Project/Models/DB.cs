@@ -12,11 +12,11 @@ namespace Final_Project.Models
             con = new SqlConnection(conStr);       
         
         }
-        public DataTable Read(string tableName) { 
+        public DataTable Read(string tableName, string Column) { 
         
         DataTable dt = new DataTable();
 
-            string Query = "select ID from "+tableName;
+            string Query = "select "+ Column +" from " + tableName ;
             try
             {
                 con.Open();
