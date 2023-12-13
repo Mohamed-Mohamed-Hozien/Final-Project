@@ -8,15 +8,15 @@ namespace Final_Project.Models
     {
         public SqlConnection con {  get; set; }
         public DB() {
-            string conStr = "Data Source=Eng_Ziad;Initial Catalog=project;Integrated Security=True";
+            string conStr = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;Encrypt=False";
             con = new SqlConnection(conStr);       
         
         }
-        public DataTable Read(string tableName, string Column) { 
+        public DataTable getRole(string E_ID, string Password) { 
         
         DataTable dt = new DataTable();
 
-            string Query = "select "+ Column +" from " + tableName ;
+            string Query = "select E.Role from Employee E where E.E_ID ='" + E_ID+ "' and E.Password ='" + Password + "';";
             try
             {
                 con.Open();
@@ -25,7 +25,7 @@ namespace Final_Project.Models
             }
             catch (SqlException ex)
             {
-
+                Console.Write(ex);
             }
             finally { con.Close();
             }
