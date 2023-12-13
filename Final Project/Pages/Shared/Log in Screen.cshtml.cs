@@ -26,6 +26,7 @@ namespace Final_Project.Pages.Shared
         public DataTable dt { get; set; }
         public void OnGet()
         {
+
         }
         public void OnPost()
         {
