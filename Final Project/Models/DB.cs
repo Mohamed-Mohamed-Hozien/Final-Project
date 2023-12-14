@@ -12,16 +12,16 @@ namespace Final_Project.Models
             con = new SqlConnection(conStr);       
         
         }
-        public DataTable getRole(string E_ID, string Password) { 
-        
+        public object getRole(string E_ID, string Password) {
+        object Reader = null;
         DataTable dt = new DataTable();
 
-            string Query = "select E.Role from Employee E where E.E_ID ='" + E_ID+ "' and E.Password ='" + Password + "';";
+            string Query = $"select E.Role from Employee E where E.E_ID ='{E_ID}' and E.Password ='{Password}'";
             try
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(Query, con);
-                dt.Load(cmd.ExecuteReader());
+                Reader = cmd.ExecuteScalar();
             }
             catch (SqlException ex)
             {
@@ -29,7 +29,8 @@ namespace Final_Project.Models
             }
             finally { con.Close();
             }
-            return dt;
+            
+            return Reader;
         }
 
         public DataTable TestingQuery(string Q)

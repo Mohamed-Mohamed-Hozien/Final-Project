@@ -23,7 +23,7 @@ namespace Final_Project.Pages.Shared
         [BindProperty]
         public string passInput { get; set; }
         [BindProperty]
-        public DataTable dt { get; set; }
+        public object dt { get; set; }
         public void OnGet()
         {
         }
