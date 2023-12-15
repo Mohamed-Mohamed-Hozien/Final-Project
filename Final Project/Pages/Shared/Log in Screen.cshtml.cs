@@ -27,15 +27,46 @@ namespace Final_Project.Pages.Shared
         public void OnGet()
         {
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
+
+
             Console.Write(idInput + " " + passInput);
             dt = db.getRole(idInput, passInput);
 
-            Console.WriteLine(dt.ToString());
+            //Console.WriteLine(dt.ToString());
+            if (dt == null)
+            {
+                return RedirectToPage("/Error");
+            }
 
+            if (dt.ToString() == "A")
+            {
 
+                return RedirectToPage("/Admin Screen");
+            }
+            if (dt.ToString() == "P")
+            {
+
+                return RedirectToPage("/Purchasing");
+            }
+
+            if(dt.ToString() == "I")
+            {
+
+                return RedirectToPage("/Inventory");
+            }
+            if (dt.ToString() == "S")
+            {
+
+                return RedirectToPage("/Sales");
+            }
+            else
+            {
+                return RedirectToPage("/Error");
+            }
 
         }
+        }
     }
-}
+

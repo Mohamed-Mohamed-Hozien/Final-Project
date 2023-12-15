@@ -8,7 +8,7 @@ namespace Final_Project.Models
     {
         public SqlConnection con {  get; set; }
         public DB() {
-            string conStr = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;Encrypt=False";
+            string conStr = "Data Source=Eng_Ziad;Initial Catalog=project;Integrated Security=True";
             con = new SqlConnection(conStr);       
         
         }
@@ -42,9 +42,12 @@ namespace Final_Project.Models
                 con.Open();
                 SqlCommand cmd = new SqlCommand(Q, con);
                 dt.Load(cmd.ExecuteReader());
+                
+                
             }
             catch (SqlException ex)
             {
+                
 
             }
             finally
