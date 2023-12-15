@@ -50,7 +50,59 @@
                 <input type="text" placeholder="Enter UserName" />
                 <input type="text" placeholder="Enter Password" />
                 <input type="text" placeholder="Enter Phone Number" />
-                <input type="text" placeholder="Enter E_ID" />
+                <input type="text" placeholder="Enter E_ID" />@page
+@model Final_Project.Pages.Admin_ScreenModel
+@{
+}
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee</button>
+        </div>
+        <!-- Other columns... -->
+    </div>
+    <div class="row align-items-center">
+        <div class="col">
+            <button class="btn btn-warning" onclick="updateEmployee()">Update Employee</button>
+        </div>
+        <!-- Other columns... -->
+    </div>
+    <div class="row align-items-end">
+        <div class="col">
+            <button class="btn btn-danger">Delete Employee</button>
+        </div>
+        <!-- Other columns... -->
+    </div>
+</div>
+
+<div class="modal" id="addEmployeeModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="text" placeholder="Enter UserName" />
+                    <input type="password" placeholder="Enter Password" />
+                    <!-- Other input fields... -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateEmployee() {
+        // Add your update logic here
+    }
+</script>
+
                 <input type="text" placeholder="Enter SSN" />
                 <input type="text" placeholder="Enter Role" />
                 <input type="text" placeholder="Enter E_Mail" />
