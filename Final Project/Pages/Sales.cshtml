@@ -13,17 +13,19 @@
 <body>
     <h1>Welcome , <span>E_Name</span></h1>
     <h1>Sales</h1>
-
-    <div class="buttons">
-        <button class="button">
+    <form method="post">  
+        <div class="buttons">
+        <button class="submit" asp-page="/Sales Order">
             Sales Order
         </button>
-        <button class="button">
+        <button class="submit" asp-page="/Sales Delivery">
             Sales Delivery
         </button>
-        <button class="button">
+        <button class="submit" asp-page="/Shared/Reports">
             Reports
         </button>
     </div>
+    </form>
+
 </body>
 </html>
