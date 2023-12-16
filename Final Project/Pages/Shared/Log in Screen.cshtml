@@ -2,3 +2,52 @@
 @model Final_Project.Pages.Shared.Log_in_ScreenModel
 @{
 }
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Final_Project</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+    <header>
+        <div style=width:100%>
+            <svg xmlns="http://www.w3.org/2000/svg" width="348" height="171" viewBox="0 0 348 171" fill="none">
+                <path d="M0 0H348L224 6.5L164 13.25L114.862 24.0116C107.313 25.665 99.9807 28.1878 93.0125 31.5297L75.6855 39.8396C61.7515 46.5222 49.556 56.3433 40.056 68.5319L36.876 72.6119C30.9892 80.1648 26.2178 88.5241 22.7079 97.4338L17.6469 110.281C15.8846 114.755 14.4472 119.349 13.346 124.03L9 142.5L0 170.5V0Z" fill="#1D006E" />
+            </svg>
+            <svg class="top-right" xmlns="http://www.w3.org/2000/svg" width="165" height="348" viewBox="0 0 165 348" fill="none">
+                <path d="M165 -1L165 347.5L158.5 223L151.75 163L140.988 113.862C139.335 106.313 136.812 98.9807 133.47 92.0125L125.16 74.6855C118.478 60.7515 108.657 48.556 96.4681 39.056L92.3881 35.876C84.8352 29.9892 76.4759 25.2178 67.5662 21.7079L48 14L36.2054 8.78845C29.7533 5.93749 23.0175 3.77722 16.1107 2.34374L-5.42402e-06 -1L165 -1Z" fill="#1D006E" />
+            </svg>
+            <div class="text"><p>Welcome to ZHY</p></div>
+        </div>
+
+    </header>
+
+    <section>
+       
+        <div class="login">
+            <form method="post">
+                <input type="text" name="idInput" placeholder="Enter ID" />
+                <input type="password" name="passInput" placeholder="Enter Password" />
+                <button class="btn btn-primary">Sign in</button>
+
+            </form>
+        </div>
+        
+    </section>
+
+
+
+    <footer>
+        <svg class="bottom-left" xmlns="http://www.w3.org/2000/svg" width="173" height="342" viewBox="0 0 173 342" fill="none">
+            <path d="M0.0306809 341.492L0.0306396 1.32791e-06L7.48518 117.521L13.9794 177.55L24.5316 226.733C26.1527 234.289 28.6443 241.632 31.9565 248.614L40.1924 265.976C46.8156 279.939 56.5846 292.176 68.7327 301.728L72.7991 304.925C80.3268 310.844 88.6657 315.651 97.5603 319.199L110.386 324.315C114.852 326.096 119.44 327.553 124.116 328.674L142.568 333.099L173 341.492L0.0306809 341.492Z" fill="#1D006E" />
+        </svg>
+        <svg class="bottom-right" xmlns="http://www.w3.org/2000/svg" width="348" height="168" viewBox="0 0 348 168" fill="none">
+            <path d="M348 168H0L124 161.5L184 154.75L233.138 143.988C240.687 142.335 248.019 139.812 254.987 136.47L272.314 128.16C286.248 121.478 298.444 111.657 307.944 99.4681L311.124 95.3881C317.011 87.8352 321.782 79.4759 325.292 70.5662L333 51L341 28L348 0.5V168Z" fill="#1D006E" />
+        </svg>
+    </footer>
+</body>
+</html>

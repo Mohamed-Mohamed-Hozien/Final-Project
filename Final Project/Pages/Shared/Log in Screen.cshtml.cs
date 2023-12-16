@@ -11,9 +11,11 @@ namespace Final_Project.Pages.Shared
 
     public class Log_in_ScreenModel : PageModel
     {
-        private readonly ILogger<Log_in_ScreenModel> _logger;
+        private readonly ILogger<Log_in_ScreenModel>
+    _logger;
         private readonly DB db;
-        public Log_in_ScreenModel(ILogger<Log_in_ScreenModel> logger, DB db)
+        public Log_in_ScreenModel(ILogger<Log_in_ScreenModel>
+            logger, DB db)
         {
             _logger = logger;
             this.db = db;
@@ -34,6 +36,7 @@ namespace Final_Project.Pages.Shared
             Console.Write(idInput + " " + passInput);
             dt = db.getRole(idInput, passInput);
 
+            
             //Console.WriteLine(dt.ToString());
             if (dt == null)
             {
@@ -51,7 +54,7 @@ namespace Final_Project.Pages.Shared
                 return RedirectToPage("/Purchasing");
             }
 
-            if(dt.ToString() == "I")
+            if (dt.ToString() == "I")
             {
 
                 return RedirectToPage("/Inventory");
@@ -67,6 +70,5 @@ namespace Final_Project.Pages.Shared
             }
 
         }
-        }
     }
-
+}

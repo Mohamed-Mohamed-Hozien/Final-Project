@@ -1,48 +1,88 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Final_Project</title>
-    <link rel="stylesheet" href="~/css/site.css" />
-    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Final_Project.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <div style=width:100%>
-            <svg xmlns="http://www.w3.org/2000/svg" width="288" height="256" viewBox="0 0 288 256" fill="none">
-                <path d="M0 0H144H288L196.085 10.1386L131.211 35.4787C125.531 37.6975 120.066 40.4312 114.883 43.6456L88.4382 60.0491C75.1499 68.2917 63.9797 79.5357 55.8249 92.8781L41.0963 116.976C38.4658 121.28 36.1647 125.776 34.2127 130.428L10.9422 185.875L0 256V0Z" fill="#1D006E" />
-            </svg>
-            <svg class="top-right" xmlns="http://www.w3.org/2000/svg" width="246" height="280" viewBox="0 0 246 280" fill="none">
-                <path d="M244.829 0L245.626 279.302L211.776 134.85C209.327 124.401 205.213 114.414 199.59 105.272L188.118 86.6224C179.925 73.3032 168.723 62.091 155.411 53.8863L138.891 43.704C130.986 38.8315 122.44 35.0839 113.501 32.5692L0.203155 0.697927L244.829 0Z" fill="#1D006E" />
-            </svg>
-            <div class="text"><p>Welcome to ZHY</p></div>
-        </div>
-
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Final_Project</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Admin Screen">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Inventory">Inventory</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/jobs">jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Purchasing order">P_O</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Purchasing">Purchasing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Sales Delivery">Sales Delivery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Sales Order">Sales Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Sales">sales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Supplies Missing">missing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Supplies Recieved">recieved</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="Shared/Log in Screen">LOG in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="Shared/Reports">Reports</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
 
-     <section> 
-    @RenderBody()
-    <div class="login">
-        <form method="post">
-            <input type="text" name="idInput" placeholder="Enter ID" />
-            <input type="password" name="passInput" placeholder="Enter Password" />
-            
-        </form>
+        </main>
     </div>
-        <button class="btn btn-primary">Sign in</button>
-    </section>
-   
-        
 
-   <footer>
-        <svg class="bottom-left" xmlns="http://www.w3.org/2000/svg" width="226" height="284" viewBox="0 0 226 284" fill="none">
-            <path d="M0 284L0 0L31.1594 148.253C33.2183 158.049 36.7366 167.481 41.5964 176.233L52.5878 196.026C60.1444 209.634 70.7733 221.29 83.6284 230.066L96.6752 238.974C104.83 244.541 113.765 248.87 123.188 251.82L226 284H0Z" fill="#1D006E" />
-        </svg>
-        <svg class="bottom-right" xmlns="http://www.w3.org/2000/svg" width="287" height="285" viewBox="0 0 287 285" fill="none">
-            <path d="M285.538 284.695L0.336977 284.029L147.042 245.807C158.365 242.857 169.082 237.943 178.706 231.288L198.727 217.444C211.507 208.606 222.052 196.912 229.525 183.288L242.925 158.862C247.007 151.42 250.126 143.487 252.205 135.257L286.201 0.66577L285.538 284.695Z" fill="#1D006E" />
-        </svg>
+    <footer class="border-top footer text-muted">
+        @* <div class="container">
+        &copy; 2023 - Final_Project - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div> *@
     </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
