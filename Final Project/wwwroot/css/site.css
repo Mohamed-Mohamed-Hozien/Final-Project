@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+
+header {
+    height: fit-content;
+    width: 100%;
+}
+
 .top-right {
     position: absolute;
     top: 0;
@@ -22,7 +28,7 @@
 }
 
 
-header, footer {
+footer {
     margin: 0;
 }
 
@@ -40,9 +46,11 @@ div p {
     display: inline-block;
     position: absolute;
     top: 40px;
-    margin: 0px 20%;
-    width: fit-content;
-    height: 83px;
+    right: 0px;
+    margin: 0 auto;
+    margin-bottom : 10% ;
+    width: 100%;
+    height: fit-content;
 }
 
 div p {
@@ -56,7 +64,7 @@ div p {
 }
 
 section {
-    margin: -5% auto;
+    margin: 0 auto;
     width: 701px;
     height: 385px;
     flex-shrink: 0;
@@ -85,7 +93,7 @@ input {
 
 button {
     display: block;
-    margin: 0 auto;
+    margin: 30px auto;
     width: 282px;
     height: 54px;
     border-radius: 211px;
