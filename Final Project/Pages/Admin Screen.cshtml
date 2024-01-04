@@ -2,7 +2,9 @@
 @model Final_Project.Pages.Admin_ScreenModel
 @{
 }
-<div class="container">
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<div style="margin:7% auto ; max-width: 600px ; max-height: 400px">
 
 
     <div class="row align-items-start">
@@ -11,22 +13,17 @@
         </div>
         <!-- Other columns... -->
     </div>
-    <div class="row align-items-center">
-        <div class="col">
-            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeEmployeeModal">Remove Employee</button>
-        </div>
-        <!-- Other columns... -->
-    </div>
+    
     <div class="row align-items-end">
         <div class="col">
             <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateEmployeeModal">Update Employee</button>
         </div>
         <!-- Other columns... -->
     </div>
-    </>
+    
 </div>
 
-<div class="modal" id="addEmployeeModal" tabindex="-1">
+<div class="modal fade" id="addEmployeeModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -37,33 +34,12 @@
                 <form>
                     <input type="text" placeholder="Enter UserName" />
                     <input type="password" placeholder="Enter Password" />
-                    <!-- Other input fields... -->
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
 
+                    <input type="number" placeholder="Enter Phone Number" />
+                    <input type="E_Mail" placeholder="Enter E_Mail" />
 
-
-
-
-
-        </div>
-    </div>
-</div>
-<div class="modal" id="removeEmployeeModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">delete Employee</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <input type="text" placeholder="Enter UserName" />
-                    <input type="password" placeholder="Enter Password" />
+                    <input type="text" placeholder="Enter ID" />
+                    
                     <!-- Other input fields... -->
                 </form>
             </div>
@@ -81,7 +57,8 @@
     </div>
 </div>
 
-<div class="modal" id="updateEmployeeModal" tabindex="-1">
+
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -92,7 +69,11 @@
                 <form>
                     <input type="text" placeholder="Enter UserName" />
                     <input type="password" placeholder="Enter Password" />
-                    <!-- Other input fields... -->
+
+                    <input type="number" placeholder="Enter Phone Number" />
+                    <input type="E_Mail" placeholder="Enter E_Mail" />
+
+                    <input type="text" placeholder="Enter ID" />
                 </form>
             </div>
             <div class="modal-footer">
