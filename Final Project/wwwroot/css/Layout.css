@@ -1,0 +1,17 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    height: 50px;
+}
+
+.list {
+    list-style: none;
+    
+}
+
+    .list li {
+        display: inline-block
+    }
