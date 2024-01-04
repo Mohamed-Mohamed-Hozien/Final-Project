@@ -13,9 +13,11 @@
 <body>
     <h1>Welcome ,@Model.l<span></span></h1>
     <h1>Inventory</h1>
-    <form method="post">
+    </div>
+    
     <div class="buttons">
-        <button class="submit" asp-page="/jobs">
+        <form method="post">
+        <button class="button" asp-page="/jobs">
             Jobs
         </button>
         <button class="button" asp-page="/Supplies Missing">
@@ -27,8 +29,8 @@
         <button class="button" asp-page="/Shared/Reports">
             Reports
         </button>
-
+        </form>
     </div>
-    </form>
+    
 </body>
 </html>
