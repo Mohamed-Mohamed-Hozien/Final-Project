@@ -137,6 +137,33 @@ namespace Final_Project.Models
             return Reader;
         }
 
+
+
+        public object updateState(string job_ID)
+        {
+            object Reader = null;
+            DataTable dt = new DataTable();
+
+            string Query = $"update job set State = 'In Progress' where Job_ID='{job_ID}'";
+            Console.WriteLine("THE QUERY\n" + Query, "\n");
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(Query, con);
+                Reader = cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                Console.Write(ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return Reader;
+        }
+
         public object getJob()
         {
             object Reader = null;

@@ -34,8 +34,10 @@
                 </tr>
 
                 @{
+                    
                     for (int i = 0; i < Model.Job_ID.Count; i++)
                     {
+                        
                         <tr>
                             <td>@Model.Job_ID[i]</td>
 
@@ -47,6 +49,8 @@
 
                             <td>@Model.ETA[i]</td>
 
+                            <td><button class="btn btn-primary" id="@Model.Job_ID[i]" onclick="@Model.UpdateState(@Model.Job_ID[i])">Confirm</button></td>
+                            
                         </tr>
                     }
                 }
@@ -173,6 +177,11 @@
             </div>
         </div>
     </div>
+
+
+
+
+   
 
 </body>
 </html>
