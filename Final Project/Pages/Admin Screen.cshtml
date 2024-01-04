@@ -6,23 +6,73 @@
 
 <div style="margin:7% auto ; max-width: 600px ; max-height: 400px">
 
-
+ <h1>Welcome,@Model.l</h1>
     <div class="row align-items-start">
         <div class="col">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee</button>
+            <button class="btn btn-success" id="addd" name="addd" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" onclick="@{Model.add();
+Model.up=false;}">Add Employee</button>
+            <button class="btn btn-warning" id="updatee" name="updatee" data-bs-toggle="modal" data-bs-target="#updateEmployeeModal" onclick=@{
+                Model.update();
+Model.up=true;
+}>Update Employee</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reportsModal">Reports</button>
+
         </div>
+            
         <!-- Other columns... -->
     </div>
-    
+
+        
     <div class="row align-items-end">
         <div class="col">
-            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateEmployeeModal">Update Employee</button>
+            
         </div>
         <!-- Other columns... -->
     </div>
-    
+
+
 </div>
 
+
+<form method="post">
+    <div class="modal fade" id="reportsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Reports</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+
+                    
+                    <button class="btn btn-dark" asp-page="/Sales">Sales Reports</button>
+                    <button class="btn btn-dark" asp-page="/Purchasing">Purchasing Reports</button>
+                    <button class="btn btn-dark" asp-page="/Inventory">Inventory Reports</button>
+
+
+
+                    <!-- Other input fields... -->
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+<form method="post">
+    
 <div class="modal fade" id="addEmployeeModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -30,23 +80,41 @@
                 <h5 class="modal-title">Add Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            
             <div class="modal-body">
-                <form>
-                    <input type="text" placeholder="Enter UserName" />
-                    <input type="password" placeholder="Enter Password" />
+                
+                
+                    <input type="text" name="userNameInput" id="userNameInput" placeholder="Enter UserName" />
+                    <input type="password" name="passInput" id="passInput" placeholder="Enter Password" />
 
-                    <input type="number" placeholder="Enter Phone Number" />
-                    <input type="E_Mail" placeholder="Enter E_Mail" />
+                    <input type="number" name="numberInput" id="numberInput" placeholder="Enter Phone Number" />
+                    <input type="email" name="mailInput" id="mailInput" placeholder="Enter E_Mail" />
 
-                    <input type="text" placeholder="Enter ID" />
-                    
+                    <input type="text" name="idInput" id="idInput" maxlength="4" placeholder="Enter ID" />
+                    <input type="text" name="ssnInput" id="ssnInput" placeholder="Enter SSN" />
+                    <input type="s" name="roleInput" id="roleInput" maxlength="1" placeholder="Enter Role" />
+                    <select id="roleInput" name="roleInput">
+                        
+                        <option value="S">Sales</option>
+                        <option value="P">Purchasing</option>
+                        <option value="I">Inventory</option>
+                        
+
+                    </select>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        <input type="submit" class="btn btn-primary" title="Save Changes" />
+
+                    </div>
+
+
+
                     <!-- Other input fields... -->
-                </form>
+                
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            
 
 
 
@@ -56,8 +124,12 @@
         </div>
     </div>
 </div>
+</form>
 
-
+<form method="post">
+    @{
+        Model.up = true;
+    }
 <div class="modal fade" id="updateEmployeeModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -66,19 +138,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
-                    <input type="text" placeholder="Enter UserName" />
-                    <input type="password" placeholder="Enter Password" />
 
-                    <input type="number" placeholder="Enter Phone Number" />
-                    <input type="E_Mail" placeholder="Enter E_Mail" />
+                    <input type="text" name="userNameInput" id="userNameInput" placeholder="Enter UserName" />
+                    <input type="password" name="passInput" id="passInput" placeholder="Enter Password" />
 
-                    <input type="text" placeholder="Enter ID" />
-                </form>
+                    <input type="number" name="numberInput" id="numberInput" placeholder="Enter Phone Number" />
+                    <input type="email" name="mailInput" id="mailInput" placeholder="Enter E_Mail" />
+
+                    <input type="text" name="idInput" id="idInput" maxlength="4" placeholder="Enter ID" />
+                    <input type="text" name="ssnInput" id="ssnInput" placeholder="Enter SSN" />
+                    <input type="text" name="roleInput" id="roleInput" maxlength="1" placeholder="Enter Role" />
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
 
 
@@ -89,8 +163,4 @@
         </div>
     </div>
 </div>
-<script>
-    function updateEmployee() {
-        // Add your update logic here
-    }
-</script>
+</form>

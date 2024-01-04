@@ -1,12 +1,69 @@
-using Microsoft.AspNetCore.Mvc;
+using Final_Project.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace Final_Project.Pages
 {
+
+
     public class jobsModel : PageModel
     {
+
+        private readonly ILogger<jobsModel> _logger;
+
+        public jobsModel(ILogger<jobsModel> logger)
+        {
+            _logger = logger;
+        }
+        public DataTable dt { get; set; }
+
+        public List<string> Job_ID { get; set; } = new List<string>();
+        public List<string> Recieved_Date { get; set; } = new List<string>();
+        public List<string> State { get; set; } = new List<string>();
+        public List<string> ETA { get; set; } = new List<string>();
         public void OnGet()
         {
+            string ConString = "Data Source=Eng_Ziad;Initial Catalog=Project202;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(ConString))
+            {
+                string querystring = "select Job_ID , RECEIVED_DATE , State ,ETA from job";
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(querystring, con))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        try
+                        {
+
+                            while (reader.Read())
+                            {
+                                Job_ID.Add(reader[0].ToString());
+                                Recieved_Date.Add(reader[1].ToString());
+                                State.Add(reader[2].ToString());
+                                ETA.Add(reader[3].ToString());
+
+                                // names=(Names.Split(' '));
+                            }
+
+                        }
+                        catch (SqlException ex)
+                        {
+                            _logger.LogError(ex, "Error reading data from the database.");
+                            //IDs = "Error reading data from the database.";
+                        }
+                    }
+                }
+
+
+            }
+
+
         }
+
+
     }
 }
