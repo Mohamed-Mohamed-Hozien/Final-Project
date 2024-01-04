@@ -35,7 +35,7 @@
 
                 @{
                     
-                    for (int i = 0; i < Model.Job_ID.Count; i++)
+                    for (int i = 0; i < @Model.Job_ID.Count; i++)
                     {
                         
                         <tr>
@@ -177,6 +177,24 @@
             </div>
         </div>
     </div>
+    <script>
+        function updateState(jobId) {
+            $.ajax({
+                type: "POST",
+                url: "/jobs/UpdateState",
+                data: { job_ID: jobId },
+                success: function (response) {
+                    console.log(response);
+                    // Handle success, update UI, etc.
+                },
+                error: function (error) {
+                    console.error("Error updating state:", error);
+                    // Handle errors
+                }
+            });
+        }
+    </script>
+
 
 
 
