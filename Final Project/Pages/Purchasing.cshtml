@@ -4,29 +4,30 @@
 }
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="~/css/purchasing.css">
 </head>
+
 <body>
     <h1>Welcome ,<span> @Model.l</span></h1>
     <h1>Purchasing</h1>
     <form method="post">
         <div class="buttons">
-@*             <a href="c:\users\zyada\downloads\final project\final project\final project\pages\purchasing.cshtml.cs">c:\users\zyada\downloads\final project\final project\final project\pages\purchasing.cshtml.cs</a>
-            <a href="c:\users\zyada\downloads\final project\final project\final project\pages\purchasing.cshtml">c:\users\zyada\downloads\final project\final project\final project\pages\purchasing.cshtml</a> *@
-        <button type="submit" class="button" asp-page="/Purchasing order">
-            Purchasing Order
-        </button>
-        <button type="submit" class="button" asp-page="/Supplies Recieved">
-            Supplies Recieving
-        </button>
-        <button type="submit" class="button" asp-page="/Reports">
-            Reports
-        </button>
-    </div>
+            <button type="submit" class="button" asp-page="/Purchasing order">
+                Purchasing Order
+            </button>
+            <button type="submit" class="button" asp-page="/Supplies Recieved">
+                Supplies Recieving
+            </button>
+            <button type="submit" class="button" asp-page="/Reports">
+                Reports
+            </button>
+        </div>
     </form>
 </body>
+
 </html>

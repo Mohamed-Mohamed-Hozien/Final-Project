@@ -26,7 +26,7 @@ namespace Final_Project.Pages
         public List<string> ETA { get; set; } = new List<string>();
 
 
-        
+
 
 
         public string UpdateState(string job_ID)
@@ -56,7 +56,7 @@ namespace Final_Project.Pages
                     catch (SqlException ex)
                     {
                         _logger.LogError(ex, "Error updating data in the database.");
-                       
+
                         return "Error updating data in the database.";
                     }
                 }
@@ -66,10 +66,10 @@ namespace Final_Project.Pages
 
         public void OnPost()
         {
-            
-           
+
+
         }
-        
+
         public void OnGet()
         {
             string ConString = "Data Source=HOZIEN-DELL-G15;Initial Catalog=Project202;Integrated Security=True;Encrypt=False";
@@ -93,14 +93,14 @@ namespace Final_Project.Pages
                                 State.Add(reader[2].ToString());
                                 ETA.Add(reader[3].ToString());
 
-                                
+
                             }
 
                         }
                         catch (SqlException ex)
                         {
                             _logger.LogError(ex, "Error reading data from the database.");
-                            
+
                         }
                     }
                 }

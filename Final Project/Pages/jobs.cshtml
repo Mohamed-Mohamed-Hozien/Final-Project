@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="css/jobs.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
+
 <body>
     <header>
         <h2>Jobs</h2>
@@ -22,9 +24,10 @@
             <button>Filter by costumer</button>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="1022" height="641" viewBox="0 0 1022 641" fill="none">
-           
-            
-            <path d="M168.53 41.1814L168.946 42.0076H169.87H982.175L1020.4 639.5H1.5V1.5H148.58L168.53 41.1814Z" fill="white" stroke="#1D006E" stroke-width="3" />
+
+
+            <path d="M168.53 41.1814L168.946 42.0076H169.87H982.175L1020.4 639.5H1.5V1.5H148.58L168.53 41.1814Z"
+                fill="white" stroke="#1D006E" stroke-width="3" />
             <table class="table">
                 <tr>
                     <th>Job Id</th>
@@ -34,10 +37,10 @@
                 </tr>
 
                 @{
-                    
+
                     for (int i = 0; i < @Model.Job_ID.Count; i++)
                     {
-                        
+
                         <tr>
                             <td>@Model.Job_ID[i]</td>
 
@@ -49,8 +52,9 @@
 
                             <td>@Model.ETA[i]</td>
 
-                            <td><button class="btn btn-primary" id="@Model.Job_ID[i]" onclick="@Model.UpdateState(@Model.Job_ID[i])">Confirm</button></td>
-                            
+                            <td><button class="btn btn-primary" id="@Model.Job_ID[i]"
+                                    onclick="@Model.UpdateState(@Model.Job_ID[i])">Confirm</button></td>
+
                         </tr>
                     }
                 }
@@ -59,13 +63,13 @@
 
             </table>
         </svg>
-        
+
 
 
     </div>
-    
+
     <div class="side-buttons">
-            <button data-bs-toggle="modal" data-bs-target="#addJobModal">Add</button>
+        <button data-bs-toggle="modal" data-bs-target="#addJobModal">Add</button>
         @* <button data-bs-toggle="modal" data-bs-target="#removeJobModal">Delete</button>
         *@<button data-bs-toggle="modal" data-bs-target="#propJobModal">Properties</button>
     </div>
@@ -83,16 +87,17 @@
                         <input type="text" placeholder="Enter Name" />
 
                         <input type="number" placeholder="Enter Quantity" />
-                        
 
-                       
+
+
 
                         <!-- Other input fields... -->
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#addSuppliesModal">Next</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
+                        data-bs-target="#addSuppliesModal">Next</button>
                 </div>
 
 
@@ -121,13 +126,13 @@
                         <input type="number" placeholder="Enter Quantity" />
                         <input type="text" placeholder="Enter S_ID 4" />
                         <input type="number" placeholder="Enter Quantity" />
-                        
-
-                        
 
 
 
-                        
+
+
+
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -161,7 +166,7 @@
 
                         <input type="text" placeholder="Enter ID" />
 
-                    
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -199,7 +204,8 @@
 
 
 
-   
+
 
 </body>
+
 </html>
