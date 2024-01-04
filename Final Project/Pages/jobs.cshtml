@@ -21,8 +21,42 @@
             <button>Filter by costumer</button>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="1022" height="641" viewBox="0 0 1022 641" fill="none">
+           
+            
             <path d="M168.53 41.1814L168.946 42.0076H169.87H982.175L1020.4 639.5H1.5V1.5H148.58L168.53 41.1814Z" fill="white" stroke="#1D006E" stroke-width="3" />
+            <table class="table">
+                <tr>
+                    <th>Job Id</th>
+                    <th>Recieved Date</th>
+                    <th>State</th>
+                    <th>ETA</th>
+                </tr>
+
+                @{
+                    for (int i = 0; i < Model.Job_ID.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model.Job_ID[i]</td>
+
+
+                            <td>@Model.Recieved_Date[i]</td>
+
+
+                            <td>@Model.State[i]</td>
+
+                            <td>@Model.ETA[i]</td>
+
+                        </tr>
+                    }
+                }
+
+
+
+            </table>
         </svg>
+        
+
+
     </div>
     
     <div class="side-buttons">
@@ -40,13 +74,53 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <input type="text" placeholder="Enter S_ID" />
+                        <input type="text" placeholder="Enter P_ID" />
                         <input type="text" placeholder="Enter Name" />
 
                         <input type="number" placeholder="Enter Quantity" />
                         
 
-                        <input type="text" placeholder="Enter ID" />
+                       
+
+                        <!-- Other input fields... -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#addSuppliesModal">Next</button>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addSuppliesModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Supplies</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" placeholder="Enter S_ID 1" />
+                        <input type="number" placeholder="Enter Quantity" />
+                        <input type="text" placeholder="Enter S_ID 2" />
+                        <input type="number" placeholder="Enter Quantity" />
+                        <input type="text" placeholder="Enter S_ID 3" />
+                        <input type="number" placeholder="Enter Quantity" />
+                        <input type="text" placeholder="Enter S_ID 4" />
+                        <input type="number" placeholder="Enter Quantity" />
+                        
+
+                        
+
+
 
                         <!-- Other input fields... -->
                     </form>
