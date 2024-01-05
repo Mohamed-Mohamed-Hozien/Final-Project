@@ -10,20 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="~/css/purchasing.css">
-</head>
+</head> 
 
 <body>
     <h1>Welcome ,<span> @Model.l</span></h1>
     <h1>Purchasing</h1>
     <form method="post">
         <div class="buttons">
-            <button type="submit" class="button" asp-page="/Purchasing order">
+            <a type="button" class="button" asp-page="/Purchasing order">
                 Purchasing Order
-            </button>
-            <button type="submit" class="button" asp-page="/Supplies Recieved">
+            </a>
+            <button type="button" class="button" asp-page="/Supplies Recieved">
                 Supplies Recieving
             </button>
-            <button type="submit" class="button" asp-page="/Reports">
+            <button type="button" class="button" asp-page="/Reports">
                 Reports
             </button>
         </div>
