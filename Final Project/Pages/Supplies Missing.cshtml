@@ -35,123 +35,50 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="1022" height="641" viewBox="0 0 1022 641" fill="none">
             <path d="M168.53 41.1814L168.946 42.0076H169.87H982.175L1020.4 639.5H1.5V1.5H148.58L168.53 41.1814Z"
                 fill="white" stroke="#1D006E" stroke-width="3" />
+            <div class="data_container">
+                <table class="table">
+                    <tr>
+                        <th>Supplies ID</th>
+                        <th>Supplier Company</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Total cost</th>
+                        <th>state</th>
+
+                    </tr>
+
+                    @{
+
+                        for (int i = 0; i < @Model.Supplies_ID.Count; i++)
+                        {
+
+                            <tr>
+                                <td>@Model.Supplies_ID[i]</td>
+
+
+                                <td>@Model.Supplier_Company[i]</td>
+
+
+                                <td>@Model.Description[i]</td>
+
+                                <td>@Model.Quantity[i]</td>
+
+                                <td>@Model.Total_cost[i]</td>
+                                
+                                <td>@Model.state[i]</td>
+
+                            </tr>
+                        }
+                    }
+
+
+
+                </table>
+            </div>
         </svg>
     </div>
     <div class="side-buttons">
-        <button data-toggle="modal" data-target="#addJobModal">Add</button>
-        @* <button data-bs-toggle="modal" data-bs-target="#removeJobModal">Delete</button>
-        *@<button data-toggle="modal" data-target="#propJobModal">Properties</button>
-    </div>
-
-    <div class="modal fade" id="addJobModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Job</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="text" placeholder="Enter P_ID" />
-                        <input type="text" placeholder="Enter Name" />
-
-                        <input type="number" placeholder="Enter Quantity" />
-
-
-
-
-                        <!-- Other input fields... -->
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
-                            data-target="#addSuppliesModal">
-                        Next
-                    </button>
-                </div>
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="addSuppliesModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Supplies</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="text" placeholder="Enter S_ID 1" />
-                        <input type="number" placeholder="Enter Quantity" />
-                        <input type="text" placeholder="Enter S_ID 2" />
-                        <input type="number" placeholder="Enter Quantity" />
-                        <input type="text" placeholder="Enter S_ID 3" />
-                        <input type="number" placeholder="Enter Quantity" />
-                        <input type="text" placeholder="Enter S_ID 4" />
-                        <input type="number" placeholder="Enter Quantity" />
-
-
-
-
-
-
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="propJobModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Job Properties</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="text" placeholder="Enter S_ID" />
-                        <input type="text" placeholder="Enter Name" />
-
-                        <input type="number" placeholder="Enter Quantity" />
-
-
-                        <input type="text" placeholder="Enter ID" />
-
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-
-
-
-
-
-
-            </div>
-        </div>
+        <a type="link" asp-page="/Supplies Missing Update btn" class="btn btn-link">Update</a>
     </div>
 
 </body>
