@@ -18,10 +18,10 @@ namespace Final_Project.Pages
             this.db = db;
         }
         [BindProperty]
-        public object l {  get; set; }
+        public object l { get; set; }
         public void OnGet()
         {
-            l=db.getName();
+            l = db.getName();
         }
     }
 }

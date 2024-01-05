@@ -1,4 +1,5 @@
 using Final_Project.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data;
 using System.Data.SqlClient;
@@ -23,9 +24,55 @@ namespace Final_Project.Pages
         public List<string> Recieved_Date { get; set; } = new List<string>();
         public List<string> State { get; set; } = new List<string>();
         public List<string> ETA { get; set; } = new List<string>();
+
+
+
+
+
+        public string UpdateState(string job_ID)
+        {
+            Console.WriteLine(job_ID);
+            string ConString = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False";
+
+            using (SqlConnection con = new SqlConnection(ConString))
+            {
+                string querystring = $"UPDATE job SET State = 'In Progress' WHERE Job_ID = '{job_ID}'";
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(querystring, con))
+                {
+                    try
+                    {
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            return "DONE UPDATING";
+                        }
+                        else
+                        {
+                            return "No rows were updated.";
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        _logger.LogError(ex, "Error updating data in the database.");
+
+                        return "Error updating data in the database.";
+                    }
+                }
+            }
+        }
+
+
+        public void OnPost()
+        {
+
+
+        }
+
         public void OnGet()
         {
-            string ConString = "Data Source=Eng_Ziad;Initial Catalog=Project202;Integrated Security=True";
+            string ConString = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
@@ -46,14 +93,14 @@ namespace Final_Project.Pages
                                 State.Add(reader[2].ToString());
                                 ETA.Add(reader[3].ToString());
 
-                                // names=(Names.Split(' '));
+
                             }
 
                         }
                         catch (SqlException ex)
                         {
                             _logger.LogError(ex, "Error reading data from the database.");
-                            //IDs = "Error reading data from the database.";
+
                         }
                     }
                 }

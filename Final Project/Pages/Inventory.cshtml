@@ -4,33 +4,36 @@
 }
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="~/css/inventory.css">
 </head>
+
 <body>
-    <h1>Welcome ,@Model.l<span></span></h1>
+    @* <h1>Welcome ,@Model.l<span></span></h1> *@
     <h1>Inventory</h1>
     </div>
-    
+
     <div class="buttons">
         <form method="post">
-        <button class="button" asp-page="/jobs">
-            Jobs
-        </button>
-        <button class="button" asp-page="/Supplies Missing">
-            Supplies Missing
-        </button>
-        <button class="button" asp-page="Supplies Recieved">
-            Supplies Recieved
-        </button>
-        <button class="button" asp-page="/Shared/Reports">
-            Reports
-        </button>
+            <button class="button" asp-page="/jobs">
+                Jobs
+            </button>
+            <button class="button" asp-page="/Supplies Missing">
+                Supplies Missing
+            </button>
+            <button class="button" asp-page="Supplies Recieved">
+                Supplies Recieved
+            </button>
+            <button class="button" asp-page="/Shared/Reports">
+                Reports
+            </button>
         </form>
     </div>
-    
+
 </body>
+
 </html>

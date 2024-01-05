@@ -5,13 +5,26 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/jobs.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
+
 <body>
     <header>
         <h2>Jobs</h2>
@@ -22,48 +35,60 @@
             <button>Filter by costumer</button>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="1022" height="641" viewBox="0 0 1022 641" fill="none">
-           
-            
-            <path d="M168.53 41.1814L168.946 42.0076H169.87H982.175L1020.4 639.5H1.5V1.5H148.58L168.53 41.1814Z" fill="white" stroke="#1D006E" stroke-width="3" />
-            <table class="table">
-                <tr>
-                    <th>Job Id</th>
-                    <th>Recieved Date</th>
-                    <th>State</th>
-                    <th>ETA</th>
-                </tr>
-
-                @{
-                    for (int i = 0; i < Model.Job_ID.Count; i++)
-                    {
-                        <tr>
-                            <td>@Model.Job_ID[i]</td>
 
 
-                            <td>@Model.Recieved_Date[i]</td>
+            <path d="M168.53 41.1814L168.946 42.0076H169.87H982.175L1020.4 639.5H1.5V1.5H148.58L168.53 41.1814Z"
+                  fill="white" stroke="#1D006E" stroke-width="3" />
+            <div class="data_container">
+                <table class="table">
+                    <tr>
+                        <th>Job Id</th>
+                        <th>Recieved Date</th>
+                        <th>State</th>
+                        <th>ETA</th>
+                    </tr>
+
+                    @{
+
+                        for (int i = 0; i < @Model.Job_ID.Count; i++)
+                        {
+
+                            <tr>
+                                <td>@Model.Job_ID[i]</td>
 
 
-                            <td>@Model.State[i]</td>
+                                <td>@Model.Recieved_Date[i]</td>
 
-                            <td>@Model.ETA[i]</td>
 
-                        </tr>
+                                <td>@Model.State[i]</td>
+
+                                <td>@Model.ETA[i]</td>
+
+                                <td>
+                                    <button class="btn btn-primary" id="@Model.Job_ID[i]"
+                                            onclick="@Model.UpdateState(@Model.Job_ID[i])">
+                                        Confirm
+                                    </button>
+                                </td>
+
+                            </tr>
+                        }
                     }
-                }
 
 
 
-            </table>
+                </table>
+            </div>
         </svg>
-        
+
 
 
     </div>
-    
+
     <div class="side-buttons">
-            <button data-bs-toggle="modal" data-bs-target="#addJobModal">Add</button>
+        <button data-toggle="modal" data-target="#addJobModal">Add</button>
         @* <button data-bs-toggle="modal" data-bs-target="#removeJobModal">Delete</button>
-        *@<button data-bs-toggle="modal" data-bs-target="#propJobModal">Properties</button>
+        *@<button data-toggle="modal" data-target="#propJobModal">Properties</button>
     </div>
 
     <div class="modal fade" id="addJobModal" tabindex="-1">
@@ -71,7 +96,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Add Job</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -79,16 +104,19 @@
                         <input type="text" placeholder="Enter Name" />
 
                         <input type="number" placeholder="Enter Quantity" />
-                        
 
-                       
+
+
 
                         <!-- Other input fields... -->
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#addSuppliesModal">Next</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                            data-target="#addSuppliesModal">
+                        Next
+                    </button>
                 </div>
 
 
@@ -105,7 +133,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Supplies</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -117,17 +145,17 @@
                         <input type="number" placeholder="Enter Quantity" />
                         <input type="text" placeholder="Enter S_ID 4" />
                         <input type="number" placeholder="Enter Quantity" />
-                        
-
-                        
 
 
 
-                        
+
+
+
+
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
 
@@ -145,7 +173,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Job Properties</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -157,11 +185,11 @@
 
                         <input type="text" placeholder="Enter ID" />
 
-                    
+
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
 
@@ -174,5 +202,13 @@
         </div>
     </div>
 
+
+
+
+
+
+
+
 </body>
+
 </html>

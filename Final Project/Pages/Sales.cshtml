@@ -4,28 +4,31 @@
 }
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="~/css/sales.css">
+    <link rel="stylesheet" href="~/css/inventory.css">
 </head>
+
 <body>
-    <h1>Welcome ,<span>@Model.l</span></h1>
+    <h1>Welcome ,@* <span>@Model.l</span> *@</h1>
     <h1>Sales</h1>
-    <form method="post">  
+    <form method="post">
         <div class="buttons">
-        <button class="submit" asp-page="/Sales Order">
-            Sales Order
-        </button>
-        <button class="submit" asp-page="/Sales Delivery">
-            Sales Delivery
-        </button>
-        <button class="submit" asp-page="/Shared/Reports">
-            Reports
-        </button>
-    </div>
+            <button class="button" asp-page="/Sales Order">
+                Sales Order
+            </button>
+            <button class="button" asp-page="/Sales Delivery">
+                Sales Delivery
+            </button>
+            <button class="button" asp-page="/Shared/Reports">
+                Reports
+            </button>
+        </div>
     </form>
 
 </body>
+
 </html>

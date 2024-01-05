@@ -18,7 +18,7 @@ namespace Final_Project.Pages
         }
 
         [BindProperty]
-        public object l {  get; set; }
+        public object l { get; set; }
 
         [BindProperty]
         public string userNameInput { get; set; }
@@ -35,19 +35,19 @@ namespace Final_Project.Pages
         [BindProperty]
         public string roleInput { get; set; }
         [BindProperty]
-        public bool up {  get; set; }
+        public bool up { get; set; }
         public void OnGet()
         {
-           l =  db.getName();
-            
+            l = db.getName();
+
         }
-        
-        
-        
 
 
 
-       
+
+
+
+
 
 
 
