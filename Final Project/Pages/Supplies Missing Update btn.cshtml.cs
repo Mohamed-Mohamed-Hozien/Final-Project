@@ -12,35 +12,43 @@ namespace Final_Project.Pages
 
         [BindProperty]
         public int Quantity { get; set; }
+
         public void OnGet()
         {
         }
-        public object updateQuantity()
+
+        public IActionResult OnPost()
+        {
+            try
+            {
+                UpdateQuantity();
+                return RedirectToPage("/Supplies Missing");  // Redirect to the same page after the update
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception and provide feedback to the user or log the error
+                return Content($"Error: {ex.Message}");
+            }
+        }
+
+        private void UpdateQuantity()
         {
             string conStr = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
-            using (SqlCommand cmd = new SqlCommand($"UPDATE Supplies SET Quantity = Quantity + {Quantity} WHERE Supplies_ID = '{Supplies_ID}'", new SqlConnection(conStr)))
+            using (SqlConnection connection = new SqlConnection(conStr))
             {
-                cmd.Connection.Open();
-                try
+                connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand($"UPDATE Supplies SET Quantity = Quantity + {Quantity} WHERE Supplies_ID = '{Supplies_ID}'", connection))
                 {
+
                     cmd.ExecuteNonQuery();
                 }
-                catch (SqlException ex)
-                {
-                    return ex.Message;
-                }
 
-                cmd.Connection.Close();
+                connection.Close();
             }
-
-            return Page();
         }
 
-        public void OnPost()
-        {
 
-            updateQuantity();
-        }
     }
 }
