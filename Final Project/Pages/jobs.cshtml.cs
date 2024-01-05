@@ -72,7 +72,7 @@ namespace Final_Project.Pages
 
         public void OnGet()
         {
-            string ConString = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=HOZIEN-DELL-G15;Initial Catalog=Project202;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
