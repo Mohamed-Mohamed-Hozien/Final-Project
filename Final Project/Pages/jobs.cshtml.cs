@@ -32,7 +32,7 @@ namespace Final_Project.Pages
         public string UpdateState(string job_ID)
         {
             Console.WriteLine(job_ID);
-            string ConString = "Data Source=HOZIEN-DELL-G15;Initial Catalog=Project202;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=Eng_Ziad;Initial Catalog=Project202;Integrated Security=True";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
@@ -72,7 +72,7 @@ namespace Final_Project.Pages
 
         public void OnGet()
         {
-            string ConString = "Data Source=HOZIEN-DELL-G15;Initial Catalog=Project202;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=Eng_Ziad;Initial Catalog=Project202;Integrated Security=True";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {

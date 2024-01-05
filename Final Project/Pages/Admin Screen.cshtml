@@ -2,20 +2,28 @@
 @model Final_Project.Pages.Admin_ScreenModel
 @{
 }
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <div style="margin:7% auto ; max-width: 600px ; max-height: 400px">
 
  <h1>Welcome,@Model.l</h1>
     <div class="row align-items-start">
         <div class="col">
-            <button class="btn btn-success" id="addd" name="addd" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" onclick="@{Model.add();
+            <button class="btn btn-success" id="addd" name="addd" data-toggle="modal" data-target="#addEmployeeModal" onclick="@{Model.add();
 Model.up=false;}">Add Employee</button>
-            <button class="btn btn-warning" id="updatee" name="updatee" data-bs-toggle="modal" data-bs-target="#updateEmployeeModal" onclick=@{
+            <button class="btn btn-warning" id="updatee" name="updatee" data-toggle="modal" data-target="#updateEmployeeModal" onclick=@{
                 Model.update();
 Model.up=true;
 }>Update Employee</button>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reportsModal">Reports</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#reportsModal">Reports</button>
 
         </div>
             
@@ -40,16 +48,16 @@ Model.up=true;
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Reports</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
 
                 <div class="modal-body">
 
 
                     
-                    <button class="btn btn-dark" asp-page="/Sales">Sales Reports</button>
-                    <button class="btn btn-dark" asp-page="/Purchasing">Purchasing Reports</button>
-                    <button class="btn btn-dark" asp-page="/Inventory">Inventory Reports</button>
+                    <a class="button" asp-page="/Sales">Sales Reports</a>
+                    <a class="button" asp-page="/Purchasing">Purchasing Reports</a>
+                    <a class="button" asp-page="/Inventory">Inventory Reports</a>
 
 
 
@@ -78,7 +86,7 @@ Model.up=true;
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Employee</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
             </div>
             
             <div class="modal-body">
@@ -103,7 +111,7 @@ Model.up=true;
                     </select>
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
                         <input type="submit" class="btn btn-primary" title="Save Changes" />
 
@@ -135,7 +143,7 @@ Model.up=true;
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">update Employee</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
 
@@ -151,7 +159,7 @@ Model.up=true;
                 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
 
