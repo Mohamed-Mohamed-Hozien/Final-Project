@@ -1,3 +1,4 @@
+using Final_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Final_Project.Models;
@@ -12,8 +13,28 @@ namespace Final_Project.Pages
 {
     public class Purchasing_orderModel : PageModel
     {
+        private readonly ILogger<Purchasing_orderModel>
+    _logger;
+        private readonly DB db;
+        public Purchasing_orderModel(ILogger<Purchasing_orderModel>
+            logger, DB db)
+        {
+            _logger = logger;
+            this.db = db;
+        }
+        [BindProperty]
+        public List<string> P_O_ID { get; set; } = new List<string>();
+        [BindProperty]
+        public List<string> Purchasing_state { get; set; } = new List<string>();
+        [BindProperty] 
+        public List<string> Payment_ID { get; set; } = new List<string>();
+        [BindProperty]
+        public List<string> E_ID { get; set; } = new List<string>();
+        [BindProperty]
+        public List<string> Supplies_ID { get; set; } = new List<string>();
         public void OnGet()
         {
+            db.getPurchasing_Order(P_O_ID, Purchasing_state, Payment_ID, E_ID, Supplies_ID);
         }
         public bool CompareCounts(string[] suppliesIds, int[] counts)
         {

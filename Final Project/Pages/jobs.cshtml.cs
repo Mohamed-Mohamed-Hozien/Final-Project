@@ -12,13 +12,15 @@ namespace Final_Project.Pages
     public class jobsModel : PageModel
     {
 
-        private readonly ILogger<jobsModel> _logger;
-
-        public jobsModel(ILogger<jobsModel> logger)
+        private readonly ILogger<jobsModel>
+            _logger;
+        private readonly DB db;
+        public jobsModel(ILogger<jobsModel>
+            logger, DB db)
         {
             _logger = logger;
+            this.db = db;
         }
-        public DataTable dt { get; set; }
 
         public List<string> Job_ID { get; set; } = new List<string>();
         public List<string> Recieved_Date { get; set; } = new List<string>();
@@ -44,7 +46,7 @@ namespace Final_Project.Pages
             // Extract and print the current date only
             DateTime currentDateOnly = currentDate.Date;
             Console.WriteLine(endJobInput);
-            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
+            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
@@ -78,7 +80,7 @@ namespace Final_Project.Pages
         public string UpdateState(string job_ID)
         {
             Console.WriteLine(job_ID);
-            string ConString = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False\"";
+            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
@@ -118,49 +120,7 @@ namespace Final_Project.Pages
 
         public void OnGet()
         {
-            DateTime currentDate = DateTime.Now;
-            DateTime currentDateOnly = currentDate.Date;
-            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
-
-            using (SqlConnection con = new SqlConnection(ConString))
-            {
-                string querystring = $"select Job_ID , RECEIVED_DATE ,End_Date , State ,ETA,P_ID,S_O_ID from Job\n";
-                  
-                con.Open();
-
-                using (SqlCommand cmd = new SqlCommand(querystring, con))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        try
-                        {
-
-                            while (reader.Read())
-                            {
-                                Job_ID.Add(reader[0].ToString());
-                                Recieved_Date.Add(reader[1].ToString());
-                                End_Date.Add(reader[2].ToString());
-                                State.Add(reader[3].ToString());
-                                ETA.Add(reader[4].ToString());
-                                P_ID.Add(reader[5].ToString());
-                                S_O_ID.Add(reader[6].ToString());
-
-
-                            }
-
-                        }
-                        catch (SqlException ex)
-                        {
-                            _logger.LogError(ex, "Error reading data from the database.");
-
-                        }
-                    }
-                }
-
-
-            }
-
-
+            db.getJob(Job_ID,Recieved_Date, State, ETA, End_Date);
         }
 
 

@@ -23,7 +23,7 @@ Model.up=false;}">Add Employee</button>
                 Model.update();
 Model.up=true;
 }>Update Employee</button>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#reportsModal">Reports</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#GOTOMODAL">Go to</button>
 
         </div>
             
@@ -43,11 +43,11 @@ Model.up=true;
 
 
 <form method="post">
-    <div class="modal fade" id="reportsModal" tabindex="-1">
+    <div class="modal fade" id="GOTOMODAL" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Reports</h5>
+                    <h5 class="modal-title">Go To</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
 
@@ -55,13 +55,10 @@ Model.up=true;
 
 
                     
-                    <a class="button" asp-page="/Sales">Sales Reports</a>
-                    <a class="button" asp-page="/Purchasing">Purchasing Reports</a>
-                    <a class="button" asp-page="/Inventory">Inventory Reports</a>
-
-
-
-                    <!-- Other input fields... -->
+                    <a class="button" asp-page="/Sales">Sales</a>
+                    <a class="button" asp-page="/Purchasing">Purchasing</a>
+                    <a class="button" asp-page="/Inventory">Inventory</a>
+                    <a class="button" asp-page="/Customer">Customer</a>
 
                 </div>
 
