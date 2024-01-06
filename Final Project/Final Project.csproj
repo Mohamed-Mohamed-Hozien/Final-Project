@@ -11,15 +11,7 @@
     <None Include="wwwroot\css\inventory.css" />
     <None Include="wwwroot\css\jobs.css" />
     <None Include="wwwroot\css\Layout.css" />
-    <None Include="wwwroot\css\Purchasing order.css" />
-    <None Include="wwwroot\css\purchasing.css" />
-    <None Include="wwwroot\css\reports.css" />
-    <None Include="wwwroot\css\sales Delivery.css" />
-    <None Include="wwwroot\css\Sales Order.css" />
-    <None Include="wwwroot\css\sales.css" />
     <None Include="wwwroot\css\site.css" />
-    <None Include="wwwroot\css\supplies Missing.css" />
-    <None Include="wwwroot\css\supplies Recieved.css" />
   </ItemGroup>
 
   <ItemGroup>
