@@ -29,7 +29,7 @@ namespace Final_Project.Pages
         public void getDeliveredOrders()
         {
 
-            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
+            string ConString = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
