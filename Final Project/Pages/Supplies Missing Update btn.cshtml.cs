@@ -33,7 +33,7 @@ namespace Final_Project.Pages
 
         private void UpdateQuantity()
         {
-            string conStr = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False";
+            string conStr = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(conStr))
             {
@@ -51,4 +51,5 @@ namespace Final_Project.Pages
 
 
     }
+
 }

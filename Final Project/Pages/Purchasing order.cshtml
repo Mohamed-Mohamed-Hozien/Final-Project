@@ -47,6 +47,46 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="1022" height="641" viewBox="0 0 1022 641" fill="none">
             <path d="M168.53 41.1814L168.946 42.0076H169.87H982.175L1020.4 639.5H1.5V1.5H148.58L168.53 41.1814Z"
                 fill="white" stroke="#1D006E" stroke-width="3" />
+            <div class="data_container">
+                <table class="table">
+                    <tr>
+                        <th>Purchasing Order ID</th>
+                        <th>State</th>
+                        <th>Payment ID</th>
+                        <th>E_ID</th>
+                        <th>Supplies ID</th>
+                    </tr>
+
+                    @{
+
+                        for (int i = 0; i < @Model.P_O_ID.Count; i++)
+                        {
+
+                            <tr>
+                                <td>@Model.P_O_ID[i]</td>
+
+
+                                <td>@Model.Purchasing_state[i]</td>
+                                <td>@Model.Payment_ID[i]</td>
+
+
+                                <td>@Model.E_ID[i]</td>
+
+                                <td>@Model.Supplies_ID[i]</td>
+
+
+
+                            </tr>
+                        }
+
+
+                    }
+
+
+
+                </table>"
+
+            </div>
         </svg>
     </div>
 

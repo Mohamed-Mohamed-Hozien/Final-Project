@@ -58,10 +58,10 @@ namespace Final_Project.Pages
         {
             getHighstOrder();
             
-            POID = int.Parse(currentID.Replace("O", ""));
+            POID = int.Parse(currentID.Replace("S_O", ""));
 
             POID -= 1;
-            prCurrentID = "O" + POID.ToString("D3");
+            prCurrentID = "S_O" + POID.ToString("D3");
 
         }
         
@@ -78,7 +78,7 @@ namespace Final_Project.Pages
                 string formattedTime = currentTimeOnly.ToString(@"hh\:mm");
                 // Extract and print the current date only
                 DateTime currentDateOnly = currentDate.Date;
-                string querystring = $"update Orders set State='In Progress' where Order_ID='{confirmedOrderID}' and State='Received'\n";
+                string querystring = $"update Sales_Orders set State='In Progress' where S_O_ID='{confirmedOrderID}' and State='Received'\n";
                     /*$"update job set State='Received' where job.Order_ID='{confirmedOrderID}'"+
                 $"update job set RECEIVED_DATE='{currentDate}' where job.Order_ID='{confirmedOrderID}'";*/
 
@@ -127,7 +127,7 @@ namespace Final_Project.Pages
         {
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = "SELECT MAX(Job_ID) AS Highest_Job_ID FROM job;";
+                string querystring = "SELECT MAX(Job_ID) AS Highest_Job_ID FROM Job;";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querystring, con))
@@ -171,7 +171,7 @@ namespace Final_Project.Pages
         {
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = "SELECT MAX(Order_ID) AS Highest_Order_ID FROM Orders;";
+                string querystring = "SELECT MAX(S_O_ID) AS Highest_Order_ID FROM Sales_Orders;";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querystring, con))
@@ -199,10 +199,10 @@ namespace Final_Project.Pages
 
 
             }
-            OID = int.Parse(currentID.Replace("O", ""));
+            OID = int.Parse(currentID.Replace("S_O", ""));
             OID += 1;
             
-            currentID="O" + OID.ToString("D3");
+            currentID="S_O" + OID.ToString("D3");
 
 
 
@@ -214,7 +214,7 @@ namespace Final_Project.Pages
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = "select Order_ID , State , Customer_ID ,E_ID from Orders";
+                string querystring = "select S_O_ID , State , Customer_ID ,E_ID from Sales_Orders";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querystring, con))
@@ -286,7 +286,7 @@ namespace Final_Project.Pages
             DateTime currentDateOnly = currentDate.Date;
             getPreviousID();
 
-            string qu = $"INSERT INTO job (Job_ID, RECEIVED_DATE, State, End_Date, ETA, Supplies_ID, P_ID, Order_ID)\r\nVALUES ('{currentJobID}', '{currentDate}', 'Received', '{currentDate}', '{formattedTime}', 'S021', 'PR025', '{prCurrentID}'); UPDATE Orders SET State = 'In Progress' WHERE Order_ID = '{prCurrentID}' AND State = 'Received';";
+            string qu = $"INSERT INTO Job (Job_ID, RECEIVED_DATE, State, End_Date, ETA, Supplies_ID, P_ID, S_O_ID)\r\nVALUES ('{currentJobID}', '{currentDate}', 'Received', '{currentDate}', '{formattedTime}', 'S021', 'PR025', '{prCurrentID}'); UPDATE Sales_Orders SET State = 'In Progress' WHERE S_O_ID = '{prCurrentID}' AND State = 'Received';";
             using (SqlConnection con = new SqlConnection(ConString))
             {
                 /*$"update job set State='Received' where job.Order_ID='{confirmedOrderID}'"+
