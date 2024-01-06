@@ -37,6 +37,7 @@ h2 {
     position: absolute;
     top: 81px;
     overflow-y : scroll ; 
+    scrollbar-width:none ; 
 }
 .side-buttons {
     width: 250px;
