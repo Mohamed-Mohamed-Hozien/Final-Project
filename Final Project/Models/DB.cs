@@ -13,7 +13,7 @@ namespace Final_Project.Models
         public SqlConnection con { get; set; }
         public DB()
         {
-            string conStr = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
+            string conStr = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
             con = new SqlConnection(conStr);
 
         }
@@ -189,15 +189,15 @@ namespace Final_Project.Models
             return Reader;
         }
 
-        public void getJob(List<string> Job_ID, List<string> Recieved_Date, List<string> State, List<string> ETA, List<string> End_Date)
+        /*public void getJob(List<string> Job_ID, List<string> Recieved_Date, List<string> State, List<string> ETA, List<string> End_Date)
         {
             DateTime currentDate = DateTime.Now;
             DateTime currentDateOnly = currentDate.Date;
-            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = $"select Job_ID , RECEIVED_DATE ,End_Date , State ,ETA from job\n";
+                string querystring = $"select Job_ID , RECEIVED_DATE ,End_Date , State ,ETA from Job\n";
 
                 con.Open();
 
@@ -230,13 +230,13 @@ namespace Final_Project.Models
 
 
             }
-        }
+        }*/
 
         public void getCustomer(List<string> Customer_ID, List<string> Email, List<string> Bank_Account)
         {
             DateTime currentDate = DateTime.Now;
             DateTime currentDateOnly = currentDate.Date;
-            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
@@ -272,7 +272,7 @@ namespace Final_Project.Models
         {
             DateTime currentDate = DateTime.Now;
             DateTime currentDateOnly = currentDate.Date;
-            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
