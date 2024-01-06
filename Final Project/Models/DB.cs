@@ -11,7 +11,7 @@ namespace Final_Project.Models
         public SqlConnection con { get; set; }
         public DB()
         {
-            string conStr = "Data Source=Eng_Ziad;Initial Catalog=Project202;Integrated Security=True";
+            string conStr = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
             con = new SqlConnection(conStr);
 
         }

@@ -46,6 +46,7 @@
                     <th>Recieved Date</th>
                     <th>State</th>
                     <th>ETA</th>
+                    <th>End Date</th>
                 </tr>
 
                 @{
@@ -58,143 +59,47 @@
 
 
                                 <td>@Model.Recieved_Date[i]</td>
+                                <td>@Model.End_Date[i]</td>
 
 
                                 <td>@Model.State[i]</td>
 
                                 <td>@Model.ETA[i]</td>
 
-                            <td><button class="btn btn-primary" id="@Model.Job_ID[i]"
-                                    onclick="@Model.UpdateState(@Model.Job_ID[i])">Confirm</button></td>
+                            
 
                         </tr>
                     }
+                    
+                    
                 }
 
 
 
-            </table>
+            </table>"
+                
             </div>
         </svg>
 
 
 
     </div>
-
+    <div>
+    <form method="post">    <input id="confirmJob" name="confirmJob" placeholder="Enter ID of a job to confirm" />
+    <button class="btn btn-primary" type="submit" onclick="@Model.UpdateState(Model.confirmJob)">Confirm</button><br />
+    <input id="endJobInput" name="endJobInput" placeholder="Enter ID of a job to end" />
+    <button class="btn btn-primary"
+            onclick="@Model.endJob()">
+        End
+    </button>
+    </form>
+    </div>
     <div class="side-buttons">
         <button data-toggle="modal" data-target="#addJobModal">Add</button>
         @* <button data-bs-toggle="modal" data-bs-target="#removeJobModal">Delete</button>
         *@<button data-toggle="modal" data-target="#propJobModal">Properties</button>
     </div>
 
-    <div class="modal fade" id="addJobModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Job</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="text" placeholder="Enter P_ID" />
-                        <input type="text" placeholder="Enter Name" />
-
-                        <input type="number" placeholder="Enter Quantity" />
-
-
-
-
-                        <!-- Other input fields... -->
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#addSuppliesModal">Next</button>
-                </div>
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="addSuppliesModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Supplies</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="text" placeholder="Enter S_ID 1" />
-                        <input type="number" placeholder="Enter Quantity" />
-                        <input type="text" placeholder="Enter S_ID 2" />
-                        <input type="number" placeholder="Enter Quantity" />
-                        <input type="text" placeholder="Enter S_ID 3" />
-                        <input type="number" placeholder="Enter Quantity" />
-                        <input type="text" placeholder="Enter S_ID 4" />
-                        <input type="number" placeholder="Enter Quantity" />
-
-
-
-
-
-
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="propJobModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Job Properties</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="text" placeholder="Enter S_ID" />
-                        <input type="text" placeholder="Enter Name" />
-
-                        <input type="number" placeholder="Enter Quantity" />
-
-
-                        <input type="text" placeholder="Enter ID" />
-
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
     
 
 

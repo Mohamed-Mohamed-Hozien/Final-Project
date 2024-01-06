@@ -1,0 +1,19 @@
+﻿@page
+@model Final_Project.Pages.addAndPropertiesModel
+@{
+}
+
+
+<form method="post">
+    
+
+    <input type="text" placeholder="Enter PayemntID" id="insertedPaymentID" name="insertedPaymentID" />
+    <input type="text" placeholder="Enter CustomerID" id="insertedCID" name="insertedCID" />
+    <input type="text" placeholder="Enter Employee ID" id="insertedEID" name="insertedEID" />
+    <input type="number" placeholder="Enter Quantity" id="Quantity" name="Quantity" />
+    <button type="submit" onclick="@Model.getNewOrder()">KL</button>
+    
+    <a class="btn btn-danger" asp-page="/Sales Order">Add</a>
+
+
+</form>
