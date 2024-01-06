@@ -51,7 +51,7 @@ namespace Final_Project.Pages
         [BindProperty]
         public int DeliverOrderID { get; set; }
 
-        string ConString = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False";
+        string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
         public void getPreviousID()
             

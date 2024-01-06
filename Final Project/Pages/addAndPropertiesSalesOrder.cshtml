@@ -44,10 +44,9 @@
     <input type="text" placeholder="Enter PayemntID" id="insertedPaymentID" name="insertedPaymentID" />
     <input type="text" placeholder="Enter CustomerID" id="insertedCID" name="insertedCID" />
     <input type="text" placeholder="Enter Employee ID" id="insertedEID" name="insertedEID" />
-    <input type="number" placeholder="Enter Quantity" id="Quantity" name="Quantity" />
-    <button type="submit" onclick="@Model.getNewOrder()">KL</button>
+    <button type="submit" onclick="@Model.getNewOrder()" class="button">Save</button><br />
     <br />
-    <a class="btn btn-danger" asp-page="/Sales Order">Add</a>
+    <a class="button" asp-page="/Sales Order">return</a><br />
 
 
 </form>

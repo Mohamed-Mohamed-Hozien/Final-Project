@@ -39,12 +39,12 @@ namespace Final_Project.Pages
             DateTime currentDate = DateTime.Now;
 
             // Print the current date and time
-           
+
 
             // Extract and print the current date only
             DateTime currentDateOnly = currentDate.Date;
             Console.WriteLine(endJobInput);
-            string ConString = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
@@ -78,7 +78,7 @@ namespace Final_Project.Pages
         public string UpdateState(string job_ID)
         {
             Console.WriteLine(job_ID);
-            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
+            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
@@ -120,12 +120,12 @@ namespace Final_Project.Pages
         {
             DateTime currentDate = DateTime.Now;
             DateTime currentDateOnly = currentDate.Date;
-            string ConString = "Data Source=DESKTOP-S23QDQL;Initial Catalog=project202;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
                 string querystring = $"select Job_ID , RECEIVED_DATE ,End_Date , State ,ETA,P_ID,S_O_ID from Job\n";
-                  
+
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querystring, con))

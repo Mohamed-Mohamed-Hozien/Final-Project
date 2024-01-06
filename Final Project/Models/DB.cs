@@ -13,7 +13,7 @@ namespace Final_Project.Models
         public SqlConnection con { get; set; }
         public DB()
         {
-            string conStr = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
+            string conStr = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
             con = new SqlConnection(conStr);
 
         }
@@ -236,7 +236,7 @@ namespace Final_Project.Models
         {
             DateTime currentDate = DateTime.Now;
             DateTime currentDateOnly = currentDate.Date;
-            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
+            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
@@ -272,7 +272,7 @@ namespace Final_Project.Models
         {
             DateTime currentDate = DateTime.Now;
             DateTime currentDateOnly = currentDate.Date;
-            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
+            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
