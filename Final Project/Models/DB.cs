@@ -148,7 +148,7 @@ namespace Final_Project.Models
             object Reader = null;
             DataTable dt = new DataTable();
 
-            string Query = $"update job set State = 'In Progress' where Job_ID='{job_ID}'";
+            string Query = $"update Job set State = 'In Progress' where Job_ID='{job_ID}'";
             Console.WriteLine("THE QUERY\n" + Query, "\n");
             try
             {
@@ -173,7 +173,7 @@ namespace Final_Project.Models
             object Reader = null;
             DataTable dt = new DataTable();
 
-            string Query = "select Job_ID , RECEIVED_DATE , State ,ETA from job";
+            string Query = "select Job_ID , RECEIVED_DATE , State ,ETA,S_O_ID from job";
             Console.WriteLine("THE QUERY\n" + Query, "\n");
             try
             {

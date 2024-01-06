@@ -26,6 +26,10 @@ namespace Final_Project.Pages
         public List<string> ETA { get; set; } = new List<string>();
         public List<string> End_Date { get; set; } = new List<string>();
 
+        public List<string> P_ID { get; set; } = new List<string>();
+        public List<string> S_O_ID { get; set; } = new List<string>();
+
+
         [BindProperty]
         public string confirmJob { get; set; }
         [BindProperty]
@@ -44,8 +48,8 @@ namespace Final_Project.Pages
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = $"update job set State = 'Done' where Job_ID = '{endJobInput}' and State='In Progress'\nUPDATE Orders SET State = 'Done' WHERE Order_ID = (SELECT Order_ID FROM job WHERE Job_ID = '{endJobInput}');"
-                    + $"update job set End_Date='{currentDate}'where Job_ID='{endJobInput}'";
+                string querystring = $"update Job set State = 'Done' where Job_ID = '{endJobInput}' and State='In Progress'\nUPDATE Sales_Orders SET State = 'Done' WHERE S_O_ID = (SELECT S_O_ID FROM Job WHERE Job_ID = '{endJobInput}');"
+                    + $"update Job set End_Date='{currentDate}'where Job_ID='{endJobInput}'";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querystring, con))
@@ -78,7 +82,7 @@ namespace Final_Project.Pages
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = $"UPDATE job SET State = 'In Progress' WHERE Job_ID = '{confirmJob}'";
+                string querystring = $"UPDATE Job SET State = 'In Progress' WHERE Job_ID = '{confirmJob}'";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querystring, con))
@@ -120,7 +124,7 @@ namespace Final_Project.Pages
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = $"select Job_ID , RECEIVED_DATE ,End_Date , State ,ETA from job\n";
+                string querystring = $"select Job_ID , RECEIVED_DATE ,End_Date , State ,ETA,P_ID,S_O_ID from Job\n";
                   
                 con.Open();
 
@@ -138,6 +142,8 @@ namespace Final_Project.Pages
                                 End_Date.Add(reader[2].ToString());
                                 State.Add(reader[3].ToString());
                                 ETA.Add(reader[4].ToString());
+                                P_ID.Add(reader[5].ToString());
+                                S_O_ID.Add(reader[6].ToString());
 
 
                             }

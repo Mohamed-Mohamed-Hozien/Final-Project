@@ -33,7 +33,7 @@ namespace Final_Project.Pages
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = "SELECT Orders.*\r\nFROM Orders\r\nJOIN Payment ON Orders.Payment_ID = Payment.Payment_ID\r\nWHERE Orders.State = 'Done' AND Payment.State = 'Paid';";
+                string querystring = "SELECT Sales_Orders.*\r\nFROM Sales_Orders\r\nJOIN Payment ON Sales_Orders.Payment_ID = Payment.Payment_ID\r\nWHERE Sales_Orders.State = 'Done' AND Payment.State = 'Paid';";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querystring, con))

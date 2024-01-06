@@ -32,7 +32,7 @@ namespace Final_Project.Pages
         public List<string> Supply_State { get; set; } = new List<string>();
         public void OnGet()
         {
-            string ConString = "Data Source=HOZIEN-DELL-G15\\SQLEXPRESS;Initial Catalog=ERP_SYS;Integrated Security=True;Encrypt=False";
+            string ConString = "Data Source=Eng_Ziad;Initial Catalog=ERP_SYS;Integrated Security=True";
 
             using (SqlConnection con = new SqlConnection(ConString))
             {

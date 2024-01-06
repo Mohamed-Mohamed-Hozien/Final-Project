@@ -40,7 +40,7 @@ namespace Final_Project.Pages
         {
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                string querystring = "SELECT MAX(Order_ID) AS Highest_Order_ID FROM Orders;";
+                string querystring = "SELECT MAX(S_O_ID) AS Highest_Order_ID FROM Sales_Orders;";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(querystring, con))
@@ -68,10 +68,10 @@ namespace Final_Project.Pages
 
 
             }
-            OID = int.Parse(currentID.Replace("O", ""));
+            OID = int.Parse(currentID.Replace("S_O", ""));
             OID += 1;
 
-            currentID = "O" + OID.ToString("D3");
+            currentID = "S_O" + OID.ToString("D3");
 
 
 
@@ -95,7 +95,7 @@ namespace Final_Project.Pages
             getHighstOrder();
 
             Console.WriteLine(currentID + "getNew is running");
-            string queryString = $"INSERT INTO Orders (Order_ID, State, Customer_ID,E_ID,Payment_ID,Role) VALUES ('{currentID}','Received','{insertedCID}','{insertedEID}','{insertedPaymentID}','S')";
+            string queryString = $"INSERT INTO Sales_Orders (S_O_ID, State, Customer_ID,E_ID,Payment_ID) VALUES ('{currentID}','Received','{insertedCID}','{insertedEID}','{insertedPaymentID}')";
             //Console.WriteLine(queryString);
 
             using (SqlConnection con = new SqlConnection(ConString))
